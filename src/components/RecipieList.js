@@ -2,20 +2,39 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Search from './Search';
 const RecipieList = () => {
+    let offset = 0;
     const [recipie, setRecipie] = useState([]);
     const [loading, setLoading] = useState(true);
+    const getRecipie = ()=>{
+        axios
+          .get(`https://www.larecipe.com/api/recipes?limit=12&offset=${offset}`)
+          .then(({data}) => {
+              console.log(data.posts);
+              const newRecipie = [];
+              data.posts.forEach(p => {
+                  newRecipie.push(p);
+              });
+              console.log(newRecipie);
+              setRecipie(oldRecipie => [...oldRecipie, ...newRecipie]);
+          })
+          .catch(err => console.error(err));
+          offset += 12;
+    };
+    const handleScroll = (e) =>{
+        // console.log('hi');
+        // console.log(window.innerHeight);
+        // console.log(e.target.documentElement.scrollTop);
+        // console.log(e.target.documentElement.scrollHeight);
 
-    useEffect(()=>{
-        const getRecipie = ()=>{
-            axios
-              .get("https://www.larecipe.com/api/recipes/")
-              .then(res => {
-                  console.log(res.data.posts);
-                  setRecipie(res.data.posts);
-              })
-              .catch(err => console.error(err));
-        }
+        if(window.innerHeight + e.target.documentElement.scrollTop + 1 > e.target.documentElement.scrollHeight){
+        console.log('bottom of page');
         getRecipie();
+        }
+    };
+    useEffect(()=>{
+       
+        getRecipie();
+        window.addEventListener('scroll', handleScroll);
     },[])
     const items = [];
     

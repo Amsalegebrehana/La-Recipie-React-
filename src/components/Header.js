@@ -43,15 +43,15 @@ const Header = () => {
                         <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/about">About</a>
+                        <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="/article">
-                        Articles<sup>17</sup>
+                        <a href="#">
+                        Recipie<sup>17</sup>
                         </a>
                     </li>
                     <li>
-                        <a href="/contact">Contact</a>
+                        <a href="#">Contact</a>
                     </li>
                     </ul>
                 </div>
@@ -63,11 +63,8 @@ const Header = () => {
             <div className="header-style-1">
               <div className="logo">
                 <a href="/">
-                  <img
-                    src="assets/imgs/theme/logo.png"
-                    alt="logo"
-                    className="logo"
-                  />
+                    <h4> La Recipe </h4>
+                 
                 </a>
               </div>
               <div className="main-nav d-none d-lg-block">
@@ -78,25 +75,25 @@ const Header = () => {
                     </li>
                     <li>
                       {" "}
-                      <a href="/about">About</a>
+                      <a href="#">About</a>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="/article">Articles</a>
+                      <a href="#">Recipe</a>
                     </li>
                     <li>
                       {" "}
-                      <a href="/contact">Contact</a>{" "}
+                      <a href="#">Contact</a>{" "}
                     </li>
                   </ul>
                 </nav>
               </div>
               <div className="header-right">
-                <button className="btn btn-md bg-dark text-white ml-15 box-shadow d-none d-lg-inline">
+                <button className="btn btn-md bg-light text-white ml-15 box-shadow d-none d-lg-inline">
                   <a
                     href="https://give.ratiochristi.org/chapter/houston-baptist-university"
                     target="blank"
                   >
-                    Support our ministry
+                    
                   </a>
                 </button>
               </div>
