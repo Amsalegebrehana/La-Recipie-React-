@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Search = () => {
+const Search = (prop) => {
+    const [searchInput, setSearchInput] = useState('');
+    const [filteredResults, setFilteredResults] = useState([]);
+    const searchItems = (s) => {
+        setSearchInput(s);
+        if(searchInput !== ''){
+            const filteredData = prop.filter((item)=>{
+                return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+            })
+            setFilteredResults(filteredData);
+        }
+        else{
+            setFilteredResults(prop)
+        }
+        
+    }
     return (
         <section className="newsletter bg-brand-3 pt-40 pb-50">
         <div className="container">
@@ -10,9 +25,10 @@ const Search = () => {
                 
                 <form className="form-subcriber mt-30 d-flex wow fadeIn animated">
                   <input
-                    type="email"
+                    type="text"
                     className="form-control bg-white font-small"
                     placeholder="Search ..."
+                    onChange={(e)=>searchItems(e.target.value)}
                   ></input>
                   <button className="btn bg-dark text-white" type="submit">
                     Search
