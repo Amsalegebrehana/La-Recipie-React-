@@ -36,10 +36,7 @@ const RecipieList = () => {
         
     }
     const handleScroll = (e) =>{
-        // console.log('hi');
-        // console.log(window.innerHeight);
-        // console.log(e.target.documentElement.scrollTop);
-        // console.log(e.target.documentElement.scrollHeight);
+        
 
         if(window.innerHeight + e.target.documentElement.scrollTop + 1 > e.target.documentElement.scrollHeight){
         console.log('bottom of page');
