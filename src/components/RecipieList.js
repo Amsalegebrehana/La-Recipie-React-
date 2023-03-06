@@ -14,7 +14,7 @@ const RecipieList = () => {
               data.posts.forEach(p => {
                   newRecipie.push(p);
               });
-              console.log(newRecipie);
+             
               setRecipie(oldRecipie => [...oldRecipie, ...newRecipie]);
           })
           .catch(err => console.error(err));
@@ -39,7 +39,7 @@ const RecipieList = () => {
         
 
         if(window.innerHeight + e.target.documentElement.scrollTop + 1 > e.target.documentElement.scrollHeight){
-        console.log('bottom of page');
+        
         getRecipie();
         }
     };
